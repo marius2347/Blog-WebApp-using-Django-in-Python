@@ -1,0 +1,117 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+    <style>
+        .col-md-4 {
+            display: none !important;
+        }
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .col-md-8 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .profile-image {
+            width: 150px; 
+            height: auto;
+            border-radius: 50%; 
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex; 
+            justify-content: center; 
+            margin-top: 20px; 
+        }
+
+        .social-icons a {
+            margin: 0 10px; 
+        }
+
+        .social-icons img {
+            width: 30px; 
+            height: auto;
+        }
+
+        h1, h2, p {
+            margin: 0; 
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px; 
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 20px; 
+            margin-bottom: 10px; 
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px; 
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0; 
+        }
+
+        ul li {
+            font-size: 1.2rem;
+            margin-bottom: 10px; 
+        }
+
+        .content-section {
+            border: none;
+            background-color: #121212;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center; 
+            text-align: center;
+        }
+
+        /* Mobile Screens */
+        @media (max-width: 768px) {
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+        }
+
+    </style>
+    <div class = "content-section">
+        <h1>About Me</h1>
+        <img src="https://marius-portofolio-b47320b455ff.herokuapp.com/media/me.jpg" alt="Marius" class="profile-image" />
+        <p>
+            I am a 4th year Mechatronics and Robotics student at <strong>POLITEHNICA University of Bucharest</strong> with a passion for doing research, finding solutions to any problem, and a strong interest in back-end and front-end development.
+        </p>
+        <p>
+            My academic journey and self-learning have provided me with foundational knowledge in programming, and I'm committed to continuing my education and growth in this field.
+        </p>
+        <h2>Programming Languages</h2>
+        <ul>
+            <li>Python</li>
+            <li>C++</li>
+            <li>Java</li>
+            <li>SQL</li>
+        </ul>
+        <h2>Social Media</h2>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/marius-ciobanu-150aa61bb/" target="_blank">
+                <img src="https://marius-portofolio-b47320b455ff.herokuapp.com/media/linkedin.png" alt="LinkedIn" class="social-icon" />
+            </a>
+            <a href="https://github.com/marius2347" target="_blank">
+                <img src="https://marius-portofolio-b47320b455ff.herokuapp.com/media/github.png" alt="GitHub" class="social-icon" />
+            </a>
+            <a href="https://www.kaggle.com/marius2303" target="_blank">
+                <img src="https://marius-portofolio-b47320b455ff.herokuapp.com/media/kaggle.png" alt="Kaggle" class="social-icon" />
+            </a>
+        </div>
+    </div>
+{% endblock content %}

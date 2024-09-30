@@ -1,0 +1,75 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <style>
+        .input-group {
+            display: none !important;
+        }
+
+        #id_image {
+            display: none;
+        }
+
+        label[for="id_image"] {
+            display: none;
+        }
+        .col-md-4 {
+            display: none !important;
+        }
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .col-md-8 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .media-body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: normal !important;
+            padding-left: 20px;
+        }
+
+        /* Mobile Screens */
+        @media (max-width: 768px) {
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+        }
+
+    </style>
+    <div class="content-section">
+        <div class="media">
+            <!-- Profile image and update button -->
+            <div class="profile-image-container">
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                <label for="id_image" class="change-image-button">Change Image</label>
+            </div>
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+                <!-- New label for Reset Password link -->
+                <label class="reset-password-label">
+                    <a href="{% url 'password_reset' %}">Reset Password</a>
+                </label>
+            </div>
+        </div>
+        <br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Info</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group"> 
+                <button class="btn btn-outline-info" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

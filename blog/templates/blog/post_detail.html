@@ -1,0 +1,54 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <style>
+        .col-md-4 {
+            display: none !important;
+        }
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .col-md-8 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Mobile Screens */
+        @media (max-width: 768px) {
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+        }
+    </style>
+    <article class="media content-section">
+        <div class="d-flex align-items-center">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+            <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            </div>
+        </div>
+        
+        <!-- New image box below the avatar, name, and date -->
+        <div class="article-image-box">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image" class="article-image">
+            {% else %}
+                <small class="text-muted">No image provided.</small>
+            {% endif %}
+        </div>
+
+        <div class="media-body">
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+
+            <!-- Check if the current user is the author of the post -->
+            {% if post.author == user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">Update</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">Delete</a>
+                </div>
+            {% endif %}
+        </div>
+    </article>
+{% endblock content %}

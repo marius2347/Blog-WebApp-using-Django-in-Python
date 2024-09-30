@@ -1,0 +1,30 @@
+<!-- TEMPLATE PAGE -->
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+    <style>
+        .col-md-4 {
+            display: none !important;
+        }
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .col-md-8 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Mobile Screens */
+        @media (max-width: 768px) {
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+        }
+
+    </style>
+    <div class = "content-section">
+        
+    </div>
+{% endblock content %}
