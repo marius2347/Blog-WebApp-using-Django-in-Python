@@ -15,9 +15,6 @@
 - Template rendering: The home and about pages are rendered using HTML templates.
 - Gmail's SMTP server: it leverages environment variables for storing sensitive information like the password
 
-## Acknowledgments
-
-**Python3**: [http://bit.ly/python3-certifications](http://bit.ly/python3-certifications)  
 <br>
 
 
